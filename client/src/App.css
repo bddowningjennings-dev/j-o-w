@@ -1,0 +1,11 @@
+* {
+  /* outline: 1px dashed red; */
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+}
+
