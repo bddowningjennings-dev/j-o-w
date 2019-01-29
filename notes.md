@@ -49,7 +49,7 @@ reconfigure nginx
 
 
 
-
+>> for github : https://help.github.com/articles/pushing-to-a-remote/
 
 sudo service nginx status
 
