@@ -1,0 +1,27 @@
+.Modal {
+
+  z-index: 3;
+  width:700px;
+  height: 500px;
+  position: absolute;
+  left:2%;
+  top:3%;
+  border-radius:10px;
+  padding:30px 20px;
+  background-color: pink;
+  overflow-y: auto;
+}
+
+.modal-toggle {
+  border:none;
+  width:80px;
+  height:80px;
+  background-color: teal;
+  cursor: pointer;
+  color:whitesmoke;
+  font-size: 25px;
+  border-radius: 30px;
+  position: absolute;
+  bottom: 80px;
+  right: 180px;
+}

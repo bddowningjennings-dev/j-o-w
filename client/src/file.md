@@ -1,14 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react'
-import marked from 'marked'
-import file from './file.md'
-import './App.css'
-import './Modal.css'
 
-import Layout from './Layout/Layout'
-
-const Markdown = ({refX}) => <div ref={refX} style={{display:'none'}}>
-# j-o-w: first project \n\r
-## Setting up a flexible, hosted linux server \n\r
+# j-o-w: first project
+## Setting up a flexible, hosted linux server
 
 #### 1) Get some "cloud compute" thing
 - sign up for gcp have to use a credit card - free tier can technically be used forever ... so, that's a thing.
@@ -79,11 +71,11 @@ app.listen(8000, () => console.log('app is listening on port 8000...'))
 -  edit (with vim? - will need sudo privilage to edit) the default config file in /etc/nginx/sites-available to proxy ```http://localhost:[app_port]``` (so far we've been using app_port = 8000) -> you only need this right now:
 
 ```conf
-server {`{`}
+server {
         listen 80;
         listen [::]:80;
 
-	location / {`{`}
+	location / {
 		proxy_pass http://localhost:8000;
 	}
 }
@@ -108,37 +100,3 @@ server {`{`}
     - (access to the webroot folder for use with the plugin - redirect the subdomains)
 
 - $$$ PROFIT
-
-`)
-</div>
-
-const Modal = ({ open, text }) => {
-  if (!open) return <></>
-  return <div className='Modal'>
-    <div dangerouslySetInnerHTML={{__html:text}} />
-  </div>
-}
-
-const App = () => {
-  const markedRef = useRef(null)
-  const [modalOpen, setModalOpen] = useState(false)
-  const [modalText, setModalText] = useState('')
-  const toggleModal = e => setModalOpen(prevState => !prevState)
-
-  useEffect(() => {
-    console.log(markedRef.current)
-    markedRef.current && console.log(markedRef.current.innerHTML)
-    setModalText(marked(markedRef.current.innerHTML))
-    return () => {}
-  }, [])
-  return <div className="App">
-      <Layout />
-      <Modal open={modalOpen} text={modalText} />
-      
-      {/* <div style={{display:'none'}} ref={markedRef}>{markdown}</div> */}
-      <Markdown refX={markedRef} />
-      <button className="modal-toggle" onClick={toggleModal}>{!modalOpen ? `Info` : `Close`}</button>
-    </div>
-}
-
-export default App
