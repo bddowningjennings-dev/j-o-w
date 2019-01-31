@@ -25,3 +25,18 @@
   bottom: 80px;
   right: 180px;
 }
+
+
+.ReadMe {
+  background-color: white;
+  display: flex;
+  flex-direction:column;
+  max-width: 650px;
+  padding:0 15px;
+  margin-bottom: 30px;
+}
+.ReadMe * {
+  margin-bottom: 4px;
+
+  overflow: auto;
+}
